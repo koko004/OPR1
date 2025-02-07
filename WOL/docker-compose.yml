@@ -1,0 +1,15 @@
+version: "3"
+services:
+  remote-wake-sleep-on-lan-armv7:latest
+    image: koko004/remote-wake-sleep-on-lan-armv7
+    container_name: wol
+    restart: always
+    network_mode: host
+    volumes:
+      - ./config.php:/var/www/html/config.php
+    environment:
+      - PASSPHRASE=adminpassword
+      - APACHE2_PORT=80
+      - RWSOLS_COMPUTER_NAME=PC1,PC2
+      - RWSOLS_COMPUTER_MAC="MAC1","MAC2"
+      - RWSOLS_COMPUTER_IP="192.168.1.23","192.168.1.24"
