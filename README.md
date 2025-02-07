@@ -17,7 +17,9 @@ Wake on Lan web server. Is important make a `config.php` file before launch dock
 
 automated script install
 ```
-
+git clone https://github.com/koko004/OPR1 \
+cd OPR1 && mv WOL/ ~ && cd ~ && rm -rf OPR1 && cd WOL \
+rm Dockerfile && docker-compose up -d
 ```
 config.php
 ```
