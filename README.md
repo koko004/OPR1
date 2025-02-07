@@ -66,5 +66,32 @@ services:
       - RWSOLS_COMPUTER_MAC="xx:xx:xx:xx:xx:xx","x:xx:xx:xx:xx:xx"
       - RWSOLS_COMPUTER_IP="192.168.1.150","192.168.1.151"
 ```
+### WGDashboard
+Wireguard dashboard for armv7
 
+docker-compose.yml
+```
+services:
+  wgdashboard:
+    image: donaldzou/wgdashboard:latest
+    restart: always
+    container_name: wgdashboard
+    environment:
+      - tz=Europe/Madrid
+      - global_dns=1.1.1.1
+      - enable=OPR1
+      #- isolate=
+      #- public_ip=
+    ports:
+      - 10086:10086/tcp
+      - 51820:51820/udp
+    volumes:
+      - conf:/etc/wireguard
+      - data:/data
+    cap_add:
+      - NET_ADMIN
 
+volumes:
+  conf:
+  data:
+```
