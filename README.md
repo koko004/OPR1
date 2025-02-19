@@ -12,6 +12,23 @@ docker run -d --restart always --name watchtower -e WATCHTOWER_CLEANUP:true -e W
 sock:/var/run/docker.sock containrrr/watchtower
 ```
 
+docker-compose.yml - This will search every 6 hours updates
+```
+version: '3'
+services:
+  watchtower:
+    image: containrrr/watchtower
+    container_name: watchtower
+    restart: always
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: --interval 21600
+    environment:
+      - WATCHTOWER_CLEANUP=true
+      - WATCHTOWER_REMOVE_VOLUMES=true
+```
+
+
 ### WOL
 Wake on Lan web server. Is important make a `config.php` file before launch docker-compose.
 
