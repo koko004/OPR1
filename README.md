@@ -112,3 +112,9 @@ volumes:
   conf:
   data:
 ```
+
+cron task - This wiull restart every 3 days and search for updates and make upgrade every 24 hours at 12:00 PM
+```
+0 0 */3 * * /sbin/shutdown -r now
+0 0 * * * /usr/bin/apt update && /usr/bin/apt upgrade -y
+```
