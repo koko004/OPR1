@@ -34,11 +34,9 @@ Wake on Lan web server. Is important make a `config.php` file before launch dock
 
 automated script install
 ```
-git clone https://github.com/koko004/OPR1 \
-cd OPR1 && mv WOL/ ~ && cd ~ && rm -rf OPR1 && cd WOL \
-rm Dockerfile && docker-compose up -d
-```
-config.php
+git clone https://github.com/koko004/OPR1 && \
+cd OPR1 && mv WOL/ ~ && cd ~ && rm -rf OPR1 && cd WOL && \
+rm -f Dockerfile && docker-compose up -d && \
 ```
 <?php
 // Configuración de la contraseña
@@ -117,6 +115,6 @@ volumes:
 
 This will restart every 3 days and search for updates and make upgrade every 24 hours at 12:00 PM
 ```
-0 0 */3 * * /sbin/shutdown -r now
-0 0 * * * /usr/bin/apt update && /usr/bin/apt upgrade -y
+0 0 */3 * * /usr/bin/apt update && /usr/bin/apt upgrade -y
+0 0 * * * /sbin/reboot
 ```
