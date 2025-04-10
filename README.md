@@ -38,6 +38,8 @@ git clone https://github.com/koko004/OPR1 && \
 cd OPR1 && mv WOL/ ~ && cd ~ && rm -rf OPR1 && cd WOL && \
 rm -f Dockerfile && docker-compose up -d && \
 ```
+config.php
+```
 <?php
 // Configuración de la contraseña
 $PASSPHRASE = getenv('PASSPHRASE') ?: 'admpassw'; // Usa la variable de entorno o un valor por defecto
@@ -59,7 +61,6 @@ $COMPUTER_SLEEP_CMD = getenv('RWSOLS_SLEEP_CMD') ?: 'suspend';
 $MAX_PINGS = getenv('RWSOLS_MAX_PINGS') ?: 15;
 $SLEEP_TIME = getenv('RWSOLS_SLEEP_TIME') ?: 5;
 ?>
-
 ```
 
 docker-compose.yml
